@@ -1,0 +1,675 @@
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+	
+	Stage window;
+	 String user="admin",pass="admin";
+	static Scene scene;
+	public static void main(String[] args) {
+			launch(args);
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			window=primaryStage;
+			Group root = new Group();
+			addComponenet(root);	
+			
+			
+			Scene scene = new Scene(root,500,400,Color.CORNFLOWERBLUE);
+			window.setScene(scene);
+			window.show();
+			window.setResizable(false);
+		}
+		
+	 public void addComponenet(Group root){
+
+		Label title = new Label("\t\tWELLCOME TO\nHOSPITAL MANAGEMENT SYSTEM");
+		title.setFont(Font.font("Verdana",FontWeight.BOLD, 20));
+		title.setTranslateX(60);
+		title.setTranslateY(20);
+
+		ImageView img = new ImageView(new Image("file:download (6).jpg"));
+		img.setFitWidth(200);
+		img.setFitHeight(200);
+		img.setTranslateX(15);
+		img.setTranslateY(180);
+
+		root.getChildren().add(img);
+		
+		
+		Text Username =  new Text("Username");
+		Username.setTranslateX(230);
+		Username.setTranslateY(250);
+		
+		
+		
+		TextField ftf = new TextField();
+		ftf.setPromptText("Enter User name");
+		ftf.setTranslateX(300);
+		ftf.setText("admin");
+		ftf.setTranslateY(235);
+
+		
+		Text pssname =  new Text("password:");
+		pssname.setTranslateX(230);
+		pssname.setTranslateY(290);
+		
+		
+		PasswordField ptf = new PasswordField();
+		ptf.setPromptText("Enter password");
+		ptf.setTranslateX(300);
+		ptf.setText("admin");
+		ptf.setTranslateY(270);
+		
+		
+		Button login = new  Button("Login");
+		login.setTranslateX(310);
+		login.setTranslateY(320);
+		
+		
+		
+
+		root.getChildren().addAll(Username,ftf,pssname,ptf,login,title);
+		
+		
+		login.setOnAction(new EventHandler <ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				if(user.equals(ftf.getText().trim()) && pass.equals(ptf.getText().trim())){
+					
+					Menu m = new Menu("Hospital Management System",600,600);
+					window.close();
+					
+				
+					
+				} else {
+					
+					
+					
+				}
+			}
+		});
+		
+		
+		
+	 }
+} 
+
+
+Menu
+
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+public class Menu {
+
+	static Stage window;
+	static Scene scene1;
+	Menu(String title,int width,int height){
+		window = new Stage();
+		window.setTitle(title);
+		window.setWidth(width);
+		window.setHeight(height);
+			
+		Group g = new Group();
+		
+		
+		
+		Button inpatient = new Button("PATIENT ENTERY");
+		inpatient.setPrefSize(160, 50);
+		inpatient.setTranslateX(420);
+		inpatient.setTranslateY(40);
+		
+
+		Button doctor = new Button("DOCTOR INFORMATION");
+		doctor.setPrefSize(160, 50);
+		doctor.setTranslateX(420);
+		doctor.setTranslateY(100);
+		
+		
+		Button Staffinfo = new Button("STAFF INFORMATION");
+	    Staffinfo.setPrefSize(160, 50);
+		Staffinfo.setTranslateX(420);
+		Staffinfo.setTranslateY(160);
+		
+		
+		Button billing = new Button(" BILLING");
+	    billing.setPrefSize(160, 50);
+		billing.setTranslateX(420);
+		billing.setTranslateY(220);
+		
+		
+		
+		Button Pathology  = new Button("PATHOLOGY");
+	    Pathology.setPrefSize(160, 50);
+		Pathology.setTranslateX(420);
+		Pathology.setTranslateY(280);
+		
+		
+		
+		
+		Button Room  = new Button("ROOM");
+	    Room.setPrefSize(160, 50);
+		Room.setTranslateX(420);
+		Room.setTranslateY(340);
+		
+		
+		
+		
+		
+		
+		
+		ImageView img1 = new ImageView(new Image("file:images.jpg"));
+		img1.setFitWidth(400);
+		img1.setFitHeight(400);
+		img1.setTranslateX(10);
+		img1.setTranslateY(10);
+		
+		g.getChildren().addAll(inpatient,img1,doctor,Staffinfo,billing,Pathology,Room);
+
+		scene1 = new Scene(g,Color.CORNFLOWERBLUE);
+		window.setScene(scene1);
+		window.show();
+		
+		
+		
+	}
+	
+}
+
+
+doctor info
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class DoctorInfo extends Application {
+	
+	Stage window;
+	 
+	static Scene scene;
+	public static void main(String[] args) {
+			launch(args);
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			window=primaryStage;
+			Group root = new Group();
+			addComponenet(root);	
+			
+			
+			Scene scene = new Scene(root,600,600,Color.CORNFLOWERBLUE);
+			window.setScene(scene);
+			window.show();
+			window.setResizable(false);
+		}
+		
+	 public void addComponenet(Group root){
+
+		Label title = new Label("\t Doctor Information PAGE");
+		title.setFont(Font.font("Verdana",FontWeight.BOLD, 20));
+		title.setTranslateX(60);
+		title.setTranslateY(20);
+
+		
+		
+		Text name =  new Text("NAME");
+		name.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		name.setTranslateX(30);
+		name.setTranslateY(150);
+		
+		
+		 TextField ntf = new TextField();
+		ntf.setPromptText("Enter Name");
+		ntf.setTranslateX(120);
+		ntf.setTranslateY(130);
+		
+		
+		
+		Text Docid =  new Text(" ID");
+		Docid.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Docid.setTranslateX(30);
+		Docid.setTranslateY(100);
+		
+		TextField Doc = new TextField();
+		Doc.setPromptText("Enter ID");
+		Doc.setTranslateX(120);
+		Doc.setTranslateY(85); 
+		
+		
+		
+		
+		
+		Text age =  new Text("AGE");
+		age.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		age.setTranslateX(30);
+		age.setTranslateY(200);
+		
+		
+		 TextField atf = new TextField();
+		atf.setPromptText("Enter AGE");
+		atf.setTranslateX(120);
+		atf.setTranslateY(180);
+		
+		
+		
+		
+		
+		Text Gender =  new Text("GENDER");
+		Gender.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Gender.setTranslateX(22);
+		Gender.setTranslateY(248);
+		
+		
+		TextField gtf = new TextField();
+		gtf.setPromptText("ENTER GENDER");
+		gtf.setTranslateX(124);
+		gtf.setTranslateY(227);
+		
+		
+		
+		
+		
+		Text ContactNo =  new Text("CONTACT NO");
+		ContactNo.setFont(Font.font("Verdana",FontWeight.BOLD,14));
+		ContactNo.setTranslateX(20);
+		ContactNo.setTranslateY(298);
+		
+		
+		 TextField Ctf = new TextField();
+		Ctf.setPromptText("ENTER CONTACTNO");
+		Ctf.setTranslateX(126);
+		Ctf.setTranslateY(278);
+		
+		
+		
+		
+		Text Department =  new Text("Department");
+		Department.setFont(Font.font("Verdana",FontWeight.BOLD,14));
+		Department.setTranslateX(20);
+		Department.setTranslateY(352);
+		
+		
+		 TextField dpt = new TextField();
+		dpt.setPromptText("ENTER Department");
+		dpt.setTranslateX(131);
+		dpt.setTranslateY(331);
+		
+		
+		Button b1 = new Button("Add");
+		Button b2 = new Button("Save");
+		Button b3 = new Button("Delete");
+		Button b4 = new Button("Exit");
+		
+		root.getChildren().addAll(name,ntf,Docid,Doc,title,age,atf,Gender,gtf,ContactNo,Ctf,Department,dpt,b1,b2,b3,b4);
+		
+					
+		
+	 }
+} 
+
+
+pathalogy class
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Pathalogyclass extends Application {
+	
+	Stage window;
+	 
+	static Scene scene;
+	public static void main(String[] args) {
+			launch(args);
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			window=primaryStage;
+			Group root = new Group();
+			addComponenet(root);	
+			
+			
+			Scene scene = new Scene(root,600,600,Color.CORNFLOWERBLUE);
+			window.setScene(scene);
+			window.show();
+			window.setResizable(false);
+		}
+		
+	 public void addComponenet(Group root){
+
+		Label title = new Label("\t Pathology");
+		title.setFont(Font.font("Verdana",FontWeight.BOLD, 20));
+		title.setTranslateX(60);
+		title.setTranslateY(20);
+		
+		
+		
+		
+		
+		Text name =  new Text("NAME");
+		name.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		name.setTranslateX(30);
+		name.setTranslateY(150);
+		
+		
+		 TextField ntf = new TextField();
+		ntf.setPromptText("Enter Name");
+		ntf.setTranslateX(120);
+		ntf.setTranslateY(130);
+		
+		
+		
+		
+		Text age =  new Text("AGE");
+		age.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		age.setTranslateX(30);
+		age.setTranslateY(200);
+		
+		
+		 TextField atf = new TextField();
+		atf.setPromptText("Enter AGE");
+		atf.setTranslateX(120);
+		atf.setTranslateY(180);
+		
+		
+		
+		
+		Text Gender =  new Text("GENDER");
+		Gender.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Gender.setTranslateX(20);
+		Gender.setTranslateY(248);
+		
+		
+		TextField gtf = new TextField();
+		gtf.setPromptText("ENTER GENDER");
+		gtf.setTranslateX(120);
+		gtf.setTranslateY(230);
+		
+		
+		
+		Text TestName =  new Text("TestName");
+		TestName.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		TestName.setTranslateX(20);
+	    TestName.setTranslateY(299);
+		
+		
+		TextField tn = new TextField();
+		tn.setPromptText("TestName");
+		tn.setTranslateX(120);
+		tn.setTranslateY(280);
+		
+		
+		
+		Text Description =  new Text("Description");
+		Description.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Description.setTranslateX(12);
+	    Description.setTranslateY(348);
+		
+		
+		TextField des = new TextField();
+		des.setPromptText("Description");
+		des.setTranslateX(120);
+		des.setTranslateY(330);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Button b1 = new Button("Add");
+		Button b2 = new Button("Save");
+		Button b3 = new Button("Exit");
+		
+		
+		
+		
+		
+		
+		
+		
+		root.getChildren().addAll(name,ntf,title,age,atf,Gender,gtf,TestName,Description,des,tn,b1,b2,b3);
+	
+					
+		
+	 }
+} 
+
+
+registration class
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class RegistrationClass extends Application {
+	
+	Stage window;
+	 
+	static Scene scene;
+	public static void main(String[] args) {
+			launch(args);
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			window=primaryStage;
+			Group root = new Group();
+			addComponenet(root);	
+			
+			
+			Scene scene = new Scene(root,600,600,Color.CORNFLOWERBLUE);
+			window.setScene(scene);
+			
+			 DatePicker checkInDatePicker = new DatePicker();
+			    root.getChildren().add(checkInDatePicker);
+			    checkInDatePicker.setTranslateX(120);
+			    checkInDatePicker.setTranslateY(240);
+			    
+			    
+			    
+
+			window.show();
+			window.setResizable(false);
+		}
+		
+	 public void addComponenet(Group root){
+
+		Label title = new Label("\t PATIENT REGISTRATION PAGE");
+		title.setFont(Font.font("Verdana",FontWeight.BOLD, 20));
+		title.setTranslateX(60);
+		title.setTranslateY(20);
+		
+		Text Patientid =  new Text("Patient ID");
+		Patientid.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Patientid.setTranslateX(30);
+		Patientid.setTranslateY(100);
+		
+		TextField ptf = new TextField();
+		ptf.setPromptText("Enter ID");
+		ptf.setTranslateX(120);
+		ptf.setTranslateY(85);
+
+		
+		
+		
+		Text name =  new Text("NAME");
+		name.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		name.setTranslateX(30);
+		name.setTranslateY(150);
+		
+		
+		 TextField ntf = new TextField();
+		ntf.setPromptText("Enter Name");
+		ntf.setTranslateX(120);
+		ntf.setTranslateY(130);
+		
+		
+		
+		
+		Text age =  new Text("AGE");
+		age.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		age.setTranslateX(30);
+		age.setTranslateY(200);
+		
+		
+		 TextField atf = new TextField();
+		atf.setPromptText("Enter AGE");
+		atf.setTranslateX(120);
+		atf.setTranslateY(180);
+		
+		
+		Text Date =  new Text("Date");
+		Date.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Date.setTranslateX(30);
+		Date.setTranslateY(260);
+		
+		
+		 TextField dtf = new TextField();
+		dtf.setPromptText("ENTER DATE");
+		dtf.setTranslateX(120);
+		dtf.setTranslateY(240);
+		
+		
+		
+		Text Gender =  new Text("GENDER");
+		Gender.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Gender.setTranslateX(30);
+		Gender.setTranslateY(300);
+		
+		
+		 TextField gtf = new TextField();
+		gtf.setPromptText("ENTER GENDER");
+		gtf.setTranslateX(120);
+		gtf.setTranslateY(280);
+		
+		
+		
+		Text Address =  new Text("ADDRESS");
+		Address.setFont(Font.font("Verdana",FontWeight.BOLD,15));
+		Address.setTranslateX(30);
+		Address.setTranslateY(340);
+		
+		
+		TextField Atf = new TextField();
+		Atf.setPromptText("ENTER ADDRESS");
+		Atf.setTranslateX(120);
+		Atf.setTranslateY(320);
+		
+		
+		
+		
+		
+		Text ContactNo =  new Text("CONTACT NO");
+		ContactNo.setFont(Font.font("Verdana",FontWeight.BOLD,14));
+		ContactNo.setTranslateX(30);
+		ContactNo.setTranslateY(380);
+		
+		
+	    TextField Ctf = new TextField();
+		Ctf.setPromptText("ENTER CONTACT");
+		Ctf.setTranslateX(135);
+		Ctf.setTranslateY(360);
+		
+		
+		Text RegDate =  new Text("RegDate");
+		RegDate.setFont(Font.font("Verdana",FontWeight.BOLD,14));
+		RegDate.setTranslateX(30);
+		RegDate.setTranslateY(408);
+		
+		
+		TextField Rd = new TextField();
+		Rd.setPromptText("ENTER RegDate");
+		Rd.setTranslateX(134);
+		Rd.setTranslateY(390);
+		
+		
+		Text RoomNo =  new Text("RoomNo");
+		RoomNo.setFont(Font.font("Verdana",FontWeight.BOLD,14));
+		RoomNo.setTranslateX(30);
+		RoomNo.setTranslateY(439);
+		
+		
+		TextField Rn = new TextField();
+		Rn.setPromptText("ENTER RoomNo");
+		Rn.setTranslateX(135);
+		Rn.setTranslateY(420);
+		
+		
+		
+		
+		Button b1 = new Button("Add");
+		Button b2 = new Button("Save");
+		Button b3 = new Button("Delete");
+		Button b4 = new Button("Search");
+		Button b5 = new Button("Close");
+		
+		
+		
+		
+		
+		
+		
+		root.getChildren().addAll(Patientid,ptf,name,ntf,title,age,atf,Date,dtf,Gender,gtf,Address,Atf,ContactNo,Ctf,RegDate,Rd,RoomNo,Rn,b1,b2,b3,b4,b5);
+		
+					
+		
+	 }
+} 
+
